@@ -1,0 +1,59 @@
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  position: relative;
+}
+
+.item {
+  width: 50rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  background-color: #ffffff;
+  border-bottom: solid 2px #eeeeee;
+
+  text-align: left;
+  font-size: 2rem;
+  font-weight: 500;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 5rem;
+}
+
+.buttons {
+  display: flex;
+  height: 100%;
+  position: absolute;
+  left: 50rem;
+}
+
+.button {
+  font-size: 1.4rem;
+  height: 100%;
+
+  border: none;
+  opacity: 0;
+
+  transition: opacity ease-in 0.1s, width linear 0.3s;
+  width: 0;
+  height: 100%;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.button-edit {
+  background-color: lightblue;
+}
+
+.button-delete {
+  background-color: lightpink;
+}
+
+.item:hover + .buttons .button,
+.buttons:hover .button {
+  opacity: 1;
+  width: 5rem;
+}
