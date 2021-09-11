@@ -6,10 +6,10 @@
   position: relative;
 }
 
-.item {
+.edit-item-input {
   width: 50rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-
+  border: none;
   background-color: #ffffff;
   border-bottom: solid 2px #eeeeee;
 
@@ -20,7 +20,24 @@
   display: flex;
   align-items: center;
   height: 100%;
-  padding-left: 5rem;
+  padding-left: 2rem;
+}
+
+.item {
+  width: 50rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  color: #323a41;
+  background-color: #ffffff;
+  border-bottom: solid 2px #eeeeee;
+
+  text-align: left;
+  font-size: 2rem;
+  font-weight: 500;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 2rem;
 }
 
 .buttons {
@@ -33,7 +50,7 @@
 .button {
   font-size: 1.4rem;
   height: 100%;
-
+  border-radius: ;
   border: none;
   opacity: 0;
 
@@ -49,7 +66,7 @@
 }
 
 .button-delete {
-  background-color: lightpink;
+  background-color: rgb(238, 174, 144);
 }
 
 .item:hover + .buttons .button,
