@@ -16,12 +16,14 @@ export class List extends Component {
         }
         this.removeItem = this.removeItem.bind(this);
         this.addItem = this.addItem.bind(this);
+        this.editItem = this.editItem.bind(this)
     }
 
 
-    removeItem(removedItem){
+    removeItem(removedItemId){
+        
         this.setState(oldState => ({
-            items: oldState.items.filter((item) => item.detail !== removedItem)
+            items: oldState.items.filter((item) => item.id !== removedItemId)
         }))
     }
 
@@ -32,6 +34,20 @@ export class List extends Component {
         }))
     }
 
+   editItem(editedItem){
+        
+         const newList = this.state.items.map((item) => {
+            if(item.id === editedItem.id){
+                return {...item, detail: editedItem.detail};
+            }
+            return item;
+         }
+         );
+         console.log('new list', newList);
+         this.setState({
+             items: newList
+         })
+     }
 
 
     render() {
@@ -43,7 +59,7 @@ export class List extends Component {
                     {this.props.listName}
                 </header>
                 {this.state.items.map(item => {
-                    return <Item key={item.id} detail={item.detail} removeItem={this.removeItem}/>
+                    return <Item key={item.id} item={item} removeItem={this.removeItem} editItem={this.editItem}/>
                 })}
                 
             </div>

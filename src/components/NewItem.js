@@ -17,7 +17,7 @@ export class NewItem extends Component {
         e.preventDefault();
         this.props.addItem(this.state.newItem);
         this.setState({
-            newItem: ''
+            newItem: ""
         })
     }
 
@@ -34,7 +34,7 @@ export class NewItem extends Component {
             <form onSubmit={this.handleSubmit}>
             <div className="new-item-container">
                 
-                    <input name="newItem" className="new-item-input" placeholder="Add new item.." value={this.props.newItem} onChange={this.handleChange}></input>
+                    <input name="newItem" className="new-item-input" placeholder="Add new item.." value={this.state.newItem} onChange={this.handleChange}></input>
                     <button className="add" >+</button>
                
             </div>

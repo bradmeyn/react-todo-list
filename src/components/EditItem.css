@@ -1,0 +1,19 @@
+.edit-item-input {
+  width: 50rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border: none;
+  background-color: #ffffff;
+  border-bottom: solid 2px #eeeeee;
+  text-align: left;
+  font-size: 2rem;
+  color: grey;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  height: 5rem;
+}
+
+.edit-form {
+  height: 5rem;
+  width: 50rem;
+}

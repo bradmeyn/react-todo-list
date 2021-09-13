@@ -6,37 +6,18 @@
   position: relative;
 }
 
-.edit-item-input {
-  width: 50rem;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  border: none;
-  background-color: #ffffff;
-  border-bottom: solid 2px #eeeeee;
-
-  text-align: left;
-  font-size: 2rem;
-  font-weight: 500;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding-left: 2rem;
-}
-
 .item {
   width: 50rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   color: #323a41;
   background-color: #ffffff;
   border-bottom: solid 2px #eeeeee;
-
   text-align: left;
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 600;
   height: 5rem;
   display: flex;
   align-items: center;
-  height: 100%;
   padding-left: 2rem;
 }
 
@@ -45,12 +26,13 @@
   height: 100%;
   position: absolute;
   left: 50rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .button {
   font-size: 1.4rem;
   height: 100%;
-  border-radius: ;
+  box-sizing: border-box;
   border: none;
   opacity: 0;
 
@@ -58,7 +40,6 @@
   width: 0;
   height: 100%;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .button-edit {
@@ -69,8 +50,21 @@
   background-color: rgb(238, 174, 144);
 }
 
-.item:hover + .buttons .button,
-.buttons:hover .button {
+.complete-button-container {
+  height: 100%;
+  position: absolute;
+  right: 50rem;
+  box-shadow: rgba(0, 0, 0, 0.15) -1.95px 1.95px 2.6px;
+}
+
+.button-complete {
+  background-color: lightgreen;
+}
+
+.item-container:hover .button,
+.buttons:hover .button,
+.item:hover ~ .complete-button-container .button,
+.complete-button-container:hover .button {
   opacity: 1;
   width: 5rem;
 }
