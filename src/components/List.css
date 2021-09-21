@@ -1,4 +1,11 @@
-.header {
+.list-container {
+  padding-top: 10rem;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 50rem;
+}
+
+.todo-list-header {
   background-color: steelblue;
   font-size: 2.6rem;
   color: #fff;
@@ -9,9 +16,43 @@
   text-align: center;
 }
 
-.list {
-  padding-top: 10rem;
-  margin: 0 auto;
-  width: 80%;
-  max-width: 50rem;
+.completed-list {
+  margin-top: 10rem;
+}
+
+.completed-list-header .completed-heading {
+  color: grey;
+  font-size: 1.6rem;
+}
+
+.state-count {
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.4rem;
+  margin-left: 1rem;
+  margin-right: auto;
+  border: solid 1px steelblue;
+  border-radius: 1000px;
+}
+
+.completed-list-header > button {
+  background-color: transparent;
+  cursor: pointer;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-bottom: 1px solid #708090;
+}
+
+.completed-list-body {
+  transition: height 0.3s ease-in-out;
+  overflow: hidden;
+  height: 0;
+}
+
+.active .completed-list-body {
+  height: 50rem;
 }

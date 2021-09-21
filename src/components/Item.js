@@ -13,8 +13,10 @@ export class Item extends Component {
             editView: false
         }
         this.handleRemove = this.handleRemove.bind(this);
+        this.handleComplete = this.handleComplete.bind(this);
         this.toggleView = this.toggleView.bind(this);
         this.editMode = this.editMode.bind(this);
+
     }
     handleRemove(e){
         this.props.removeItem(this.props.item.id);
@@ -30,20 +32,26 @@ export class Item extends Component {
         this.toggleView();
         
     }
+
+    handleComplete(){
+    
+        this.props.completeItem(this.props.item)
+    }
     
     render() {
 
         const itemView = !this.state.editView ?<div className="item">{this.props.item.detail}</div> : <EditItem item={this.props.item} editMode={this.editMode} editItem={this.props.editItem}/>;
+        const editBtn = !this.state.editView ? <button onClick={this.toggleView} className="button button-edit"><FontAwesomeIcon icon={farEdit} size="lg" /></button>: <button onClick={this.toggleView} className="button button-edit">X</button>
         return (
             <div className="item-container">
                <div className="complete-button-container"> 
-               <button onClick={this.editMode} className="button button-complete"><FontAwesomeIcon icon={fasCheck} size="lg" />
+               <button onClick={this.handleComplete} className="button button-complete"><FontAwesomeIcon icon={fasCheck} size="lg" />
                </button>
                 </div>
                 {itemView}
                 <div className="buttons">
-                    <button onClick={this.editMode} className="button button-edit"><FontAwesomeIcon icon={farEdit} size="lg" /></button>
-                    <button onClick={this.handleRemove} className="button button-delete"><FontAwesomeIcon icon={farTrashAlt} size="lg"/></button>
+                {editBtn}
+                <button onClick={this.handleRemove} className="button button-delete"><FontAwesomeIcon icon={farTrashAlt} size="lg"/></button>  
                 </div>
             </div>
         )

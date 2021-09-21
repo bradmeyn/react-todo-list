@@ -1,0 +1,19 @@
+.completed-item {
+  list-style: none;
+}
+
+.completed-item > button {
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 1rem 4rem;
+  background-color: transparent;
+  text-decoration: line-through;
+  border: none;
+  color: grey;
+}
+
+.completed-item > button:hover {
+  text-decoration: none;
+}

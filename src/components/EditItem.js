@@ -35,7 +35,13 @@ export class EditItem extends Component {
                 <input
                     autoFocus
                     onChange={this.handleChange}
-                    onBlur={this.props.editMode}
+                    onBlur={(e) => {
+            
+                        if(!e.relatedTarget || !e.relatedTarget.classList.contains('button-edit')){
+                            this.props.editMode()
+                        }
+                        
+                    }}
                     className="edit-item-input" 
                     value={this.state.item}></input> 
             </form>
