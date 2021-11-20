@@ -6,6 +6,13 @@
   position: relative;
 }
 
+.item-container:last-child {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
 .item {
   width: 50rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -21,12 +28,22 @@
   padding-left: 2rem;
 }
 
+.item:last-child {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
 .buttons {
   display: flex;
   height: 100%;
   position: absolute;
   left: 50rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
 }
 
 .button {
@@ -55,6 +72,9 @@
   position: absolute;
   right: 50rem;
   box-shadow: rgba(0, 0, 0, 0.15) -1.95px 1.95px 2.6px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
 }
 
 .button-complete {
@@ -67,4 +87,9 @@
 .complete-button-container:hover .button {
   opacity: 1;
   width: 5rem;
+}
+
+.item-container:hover {
+  overflow: visible;
+  box-shadow: none;
 }
