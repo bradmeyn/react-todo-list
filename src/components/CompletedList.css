@@ -1,12 +1,11 @@
-.List {
+.CompletedList {
   padding-top: 10%;
   margin: 0 auto;
   width: 80%;
   max-width: 50rem;
-  height: 100%;
 }
 
-.List__Header {
+.CompletedList__Header {
   background-color: steelblue;
   font-size: 2.6rem;
   color: #fff;
@@ -51,7 +50,7 @@
   border-bottom: 1px solid #708090;
 }
 
-.completed-list-body {
+.CompletedList__Body {
   transition: height 0.3s ease-in-out;
   overflow: hidden;
   height: 0;

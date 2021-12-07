@@ -4,7 +4,7 @@ import './CompletedItem.css'
 
 export default function CompletedItem(props) {
 
-    const handleReinstatement = props => {
+    const handleReinstatement = () => {
         props.reinstateItem(props.item)
       }
 
