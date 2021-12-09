@@ -3,66 +3,49 @@ import './NewItem.css'
 
 export default function NewItem(props) {
     const [newItem, setNewItem] = useState('');
+    const [warningActive, setWarningActive] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.addItem(newItem);
-        setNewItem('');
+        let cleanString = newItem.trim();
+
+            if(cleanString.length === 0){
+                popUpWarning('You cannot add a blank item!');
+
+            } else if(props.items.length >= 10) {
+                popUpWarning('Lets get some items ticked off first!');
+
+            } else {
+                props.addItem(cleanString);
+                setNewItem('');
+            }
+        
     }
 
     const handleChange = e => {
        setNewItem(e.target.value);
     }
 
+    const popUpWarning = (message) => {
+        setWarningActive(true);
+        setNewItem(message);
+
+        setTimeout(() => {
+            setWarningActive(false);
+            setNewItem('');
+        }, 2500);
+
+    }
+
+    
+    
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className="new-item-container">
-                <input name="newItem" className="new-item-input" placeholder="Add new item.." value={newItem} onChange={handleChange}></input>
-                <button className="add" >+</button>
+            <div className={warningActive ? "NewItem NewItem--Warning" : "NewItem"}>
+                <input name="newItem" className="NewItem__Input" placeholder="Add new item.." value={newItem} onChange={handleChange}></input>
+                <button className="NewItem__Button" >+</button>
             </div>
         </form>
     )
 }
-
-// export class NewItem extends Component {
-//     constructor(props){
-//         super(props)
-//         this.state = {
-//            newItem: ''
-//         }
-//         // this.addItem = this.addItem.bind(this);
-//         this.handleChange = this.handleChange.bind(this);
-//         this.handleSubmit = this.handleSubmit.bind(this);
-//     }
-
-
-//     handleSubmit(e){
-//         e.preventDefault();
-//         this.props.addItem(this.state.newItem);
-//         this.setState({
-//             newItem: ""
-//         })
-//     }
-
-//     handleChange(e){
-//         this.setState({
-//             [e.target.name]: e.target.value
-//         })
-//     }
-
-
-//     render() {
-
-//         return (
-//             <form onSubmit={this.handleSubmit}>
-//             <div className="new-item-container">
-                
-//                     <input name="newItem" className="new-item-input" placeholder="Add new item.." value={this.state.newItem} onChange={this.handleChange}></input>
-//                     <button className="add" >+</button>
-               
-//             </div>
-//             </form>
-//         )
-//     }
-// }

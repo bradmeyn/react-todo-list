@@ -1,7 +1,6 @@
 .CompletedList {
-  padding-top: 10%;
   margin: 0 auto;
-  width: 80%;
+
   max-width: 50rem;
 }
 
@@ -12,50 +11,12 @@
   font-weight: 500;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-
   text-align: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  overflow: hidden;
-}
-
-.completed-list {
-  margin-top: 10rem;
-}
-
-.completed-list-header .completed-heading {
-  color: grey;
-  font-size: 1.6rem;
-}
-
-.state-count {
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 0.4rem;
-  margin-left: 1rem;
-  margin-right: auto;
-  border: solid 1px steelblue;
-  border-radius: 1000px;
-}
-
-.completed-list-header > button {
-  background-color: transparent;
-  cursor: pointer;
   width: 100%;
-  padding: 1.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: none;
-  border-bottom: 1px solid #708090;
 }
 
 .CompletedList__Body {
   transition: height 0.3s ease-in-out;
-  overflow: hidden;
-  height: 0;
-}
 
-.active .completed-list-body {
-  height: 50rem;
+  height: 0;
 }

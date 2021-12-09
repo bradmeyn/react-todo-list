@@ -5,8 +5,6 @@ import NewItem from'./NewItem'
 import CompletedList from './CompletedList'
 import './List.css'
 import { v4 as uuidv4 } from 'uuid';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 export default function List(props) {
     const [items, setItems] = useState([
@@ -24,12 +22,10 @@ export default function List(props) {
 
     const addItem = newItem => {
         let item = {id: uuidv4(), detail: newItem};
-
         setItems([...items, item]);
      }
 
      const completeItem = completedItem => {
-
        //remove item from main list
         let updatedList = items.filter(item => {
             return item.id !== completedItem.id
@@ -37,7 +33,6 @@ export default function List(props) {
         setItems([...updatedList]);
         setCompleted([...completedItems, completedItem]);
     }
-
 
     const editItem = editedItem => {
         const newList = items.map(item => {
@@ -67,7 +62,6 @@ export default function List(props) {
      }
 
 
-
      const mainList = (<>
         <div className="List__Container">
             <header className="List__Header">
@@ -77,14 +71,26 @@ export default function List(props) {
             return <Item key={item.id} item={item} removeItem={removeItem} editItem={editItem} completeItem={completeItem}/>
         })}
         </div>
-        <NewItem addItem={addItem}/>
+        <NewItem addItem={addItem} items={items}/>
         </>)
 
     return (
         <div className="List">
             <div className="List__Buttons">
-                <button onClick={completedView ? toggleCompleteView : ""}>Outstanding</button>
-                <button onClick={!completedView ? toggleCompleteView : ""}>Completed</button>
+                <button 
+                className={completedView ? 'List__Button' : 'List__Button--Active'} 
+                onClick={completedView ? toggleCompleteView : ""}
+                >
+                Outstanding
+    <span className={items.length > 0 ? 'List__ItemCount' : 'List__ItemCount--Hidden'} >{items.length}</span>
+                </button>
+                <button 
+                className={completedView ? 'List__Button--Active' : 'List__Button'}
+                onClick={!completedView ? toggleCompleteView : ""}
+                >
+                Completed
+    <span className={completedItems.length > 0 ? 'List__ItemCount' : 'List__ItemCount--Hidden'}>{completedItems.length}</span>
+                </button>
             </div>
 
             {completedView ? <CompletedList completedItems={completedItems} reinstateItem={reinstateItem}/> : mainList}

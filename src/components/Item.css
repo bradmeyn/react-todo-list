@@ -16,12 +16,12 @@
 .item {
   width: 50rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  color: #323a41;
+  color: #272e33;
   background-color: #ffffff;
   border-bottom: solid 2px #eeeeee;
   text-align: left;
   font-size: 2rem;
-  font-weight: 600;
+
   height: 5rem;
   display: flex;
   align-items: center;

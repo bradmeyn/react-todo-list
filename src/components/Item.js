@@ -3,8 +3,9 @@ import './EditItem'
 import  EditItem  from './EditItem'
 import './Item.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit as farEdit, faTrashAlt as farTrashAlt } from '@fortawesome/free-regular-svg-icons'
-import { faCheck as fasCheck } from '@fortawesome/free-solid-svg-icons'
+// import { faEdit as falEdit, faTrashAlt as falTrashAlt } from '@fortawesome/free-regular-svg-icons'
+// import { faCheck as falCheck } from '@fortawesome/free-solid-svg-icons'
+import  {faCheck as falCheck, faEdit as falEdit, faTrashAlt as falTrashAlt} from '@fortawesome/pro-light-svg-icons';
 
 
 export default function Item(props) {
@@ -28,17 +29,18 @@ export default function Item(props) {
 
 
         const itemView = !editView ?<div className="item">{props.item.detail}</div> : <EditItem item={props.item} editMode={editMode} editItem={props.editItem}/>;
-        const editBtn = !editView ? <button onClick={toggleView} className="button button-edit"><FontAwesomeIcon icon={farEdit} size="lg" /></button>: <button onClick={toggleView} className="button button-edit">X</button>
+        const editBtn = !editView ? <button onClick={toggleView} className="button button-edit"><FontAwesomeIcon icon={falEdit} size="lg" /></button>: <button onClick={toggleView} className="button button-edit">X</button>
     return (
         <div className="item-container">
-            <div className="complete-button-container"> 
-            <button onClick={handleComplete} className="button button-complete"><FontAwesomeIcon icon={fasCheck} size="lg" />
-            </button>
+            
+            <div className="complete-button-container">
+                <button onClick={handleComplete} className="button button-complete"><FontAwesomeIcon icon={falCheck} size="lg" /></button>
             </div>
+            
             {itemView}
             <div className="buttons">
             {editBtn}
-            <button onClick={handleRemove} className="button button-delete"><FontAwesomeIcon icon={farTrashAlt} size="lg"/></button>  
+            <button onClick={handleRemove} className="button button-delete"><FontAwesomeIcon icon={falTrashAlt} size="lg"/></button>  
         </div>
      </div>
     )

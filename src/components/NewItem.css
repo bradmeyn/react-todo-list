@@ -1,19 +1,30 @@
-.new-item-container {
+.NewItem {
   display: flex;
   margin-bottom: 3rem;
   height: 5rem;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-top: 5rem;
 }
 
-.new-item-input {
+.NewItem--Warning {
+  border: solid 3px lightcoral;
+  animation: left 0.2s ease-in;
+  transition: all ease 0.1s;
+}
+
+.NewItem--Warning .NewItem__Input {
+  color: lightcoral;
+  font-weight: bold;
+}
+
+.NewItem__Input {
   width: 50rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   border: none;
   background-color: #ffffff;
   border-bottom: solid 2px #eeeeee;
-
   text-align: left;
   font-size: 2rem;
   font-weight: 500;
@@ -24,7 +35,7 @@
   padding-left: 2rem;
 }
 
-.add {
+.NewItem__Button {
   display: block;
   text-align: center;
   height: 5rem;
@@ -35,4 +46,40 @@
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   cursor: pointer;
   background-color: lightpink;
+}
+
+@keyframes left {
+  0% {
+  }
+
+  50% {
+    transform: translateX(-6px);
+  }
+
+  100% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes right {
+  0% {
+  }
+
+  50% {
+    transform: translateX(6px);
+  }
+
+  100% {
+    transform: translateX(-6px);
+  }
+}
+
+.move-left {
+  animation: left 0.2s ease-in;
+  transition: all ease 0.1s;
+}
+
+.move-right {
+  animation: right 0.2s ease-in;
+  transition: all ease 0.1s;
 }

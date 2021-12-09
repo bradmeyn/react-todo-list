@@ -1,19 +1,27 @@
-.completed-item {
+.CompletedItem {
   list-style: none;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  color: #323a41;
+  background-color: #ffffff;
+  border-bottom: solid 2px #eeeeee;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
 }
 
-.completed-item > button {
+.CompletedItem > button {
   cursor: pointer;
   text-align: left;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   width: 100%;
-  padding: 1rem 4rem;
+  padding: 1.5rem 4rem;
   background-color: transparent;
   text-decoration: line-through;
   border: none;
   color: grey;
 }
 
-.completed-item > button:hover {
+.CompletedItem > button:hover {
   text-decoration: none;
 }

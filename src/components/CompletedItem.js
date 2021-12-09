@@ -2,6 +2,9 @@ import React from 'react'
 
 import './CompletedItem.css'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import  {faCheck as falCheck} from '@fortawesome/pro-light-svg-icons';
+
 export default function CompletedItem(props) {
 
     const handleReinstatement = () => {
@@ -9,7 +12,8 @@ export default function CompletedItem(props) {
       }
 
     return (
-        <li className="completed-item">
+        <li className="CompletedItem">
+           <FontAwesomeIcon icon={falCheck} size={'3x'} color={'green'}/>
             <button onClick={handleReinstatement}>{props.item.detail}</button>
         </li>
     )
