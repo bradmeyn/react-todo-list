@@ -12,9 +12,17 @@ export default function CompletedItem(props) {
       }
 
     return (
-        <li className="CompletedItem">
-           <FontAwesomeIcon icon={falCheck} size={'3x'} color={'green'}/>
-            <button onClick={handleReinstatement}>{props.item.detail}</button>
+        <li className="CompletedItem" onClick={handleReinstatement}>
+           <FontAwesomeIcon className={'CompletedItem__Icon'} icon={falCheck} size={'3x'} color={'green'}/>
+           <div>
+           <button className="CompletedItem__Button">
+               {props.item.detail}
+               
+           </button>
+           <small className="CompletedItem__Date">{props.item.completedDate}</small>
+           
+           </div>
+            
         </li>
     )
 }

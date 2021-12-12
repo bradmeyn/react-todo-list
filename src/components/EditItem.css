@@ -1,19 +1,28 @@
-.edit-item-input {
+.EditItem__Input {
   width: 50rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   border: none;
   background-color: #ffffff;
   border-bottom: solid 2px #eeeeee;
   text-align: left;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: grey;
   display: flex;
   align-items: center;
-  padding-left: 2rem;
+  padding-left: 3rem;
   height: 5rem;
 }
 
-.edit-form {
+.EditItem__Input:focus-visible {
+  outline: none;
+}
+
+.EditItem__Input:focus,
+.EditItem__Input:active {
+  border: solid 1px lightblue;
+}
+
+.EditItem {
   height: 5rem;
   width: 50rem;
 }

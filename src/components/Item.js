@@ -3,9 +3,9 @@ import './EditItem'
 import  EditItem  from './EditItem'
 import './Item.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faEdit as falEdit, faTrashAlt as falTrashAlt } from '@fortawesome/free-regular-svg-icons'
+import {faCircle } from '@fortawesome/free-solid-svg-icons'
 // import { faCheck as falCheck } from '@fortawesome/free-solid-svg-icons'
-import  {faCheck as falCheck, faEdit as falEdit, faTrashAlt as falTrashAlt} from '@fortawesome/pro-light-svg-icons';
+import  {faCheck as falCheck, faEdit as falEdit, faTrashAlt as falTrashAlt, faTimes as falTimes} from '@fortawesome/pro-light-svg-icons';
 
 
 export default function Item(props) {
@@ -28,74 +28,18 @@ export default function Item(props) {
         }
 
 
-        const itemView = !editView ?<div className="item">{props.item.detail}</div> : <EditItem item={props.item} editMode={editMode} editItem={props.editItem}/>;
-        const editBtn = !editView ? <button onClick={toggleView} className="button button-edit"><FontAwesomeIcon icon={falEdit} size="lg" /></button>: <button onClick={toggleView} className="button button-edit">X</button>
+        const itemView = !editView ?<div className="Item"><FontAwesomeIcon className="Item__Icon" icon={faCircle} size="sm" />{props.item.detail}</div> : <EditItem item={props.item} editMode={editMode} editItem={props.editItem}/>;
+        const editBtn = !editView ? <button onClick={toggleView} className="Item__Button Item__Button--Edit"><FontAwesomeIcon icon={falEdit} size="lg"/></button>: <button style={{backgroundColor: "lightPink"}} onClick={toggleView} className="Item__Button Item__Button--Edit"><FontAwesomeIcon icon={falTimes} size="lg"/></button>
     return (
-        <div className="item-container">
-            
-            <div className="complete-button-container">
-                <button onClick={handleComplete} className="button button-complete"><FontAwesomeIcon icon={falCheck} size="lg" /></button>
+        <div className="Item__Container">
+            <div className="Item__Button-Container">
+                <button onClick={handleComplete} className="Item__Button Item__Button--Complete"><FontAwesomeIcon icon={falCheck} size="lg" /></button>
             </div>
-            
             {itemView}
-            <div className="buttons">
-            {editBtn}
-            <button onClick={handleRemove} className="button button-delete"><FontAwesomeIcon icon={falTrashAlt} size="lg"/></button>  
+            <div className="Item__Buttons-Container">
+                {editBtn}
+                <button onClick={handleRemove} className="Item__Button Item__Button--Delete"><FontAwesomeIcon icon={falTrashAlt} size="lg"/></button>  
+            </div>
         </div>
-     </div>
     )
 }
-
-
-// export class Item extends Component {
-//     constructor(props){
-//         super(props)
-//         this.state = {
-//             editView: false
-//         }
-//         this.handleRemove = this.handleRemove.bind(this);
-//         this.handleComplete = this.handleComplete.bind(this);
-//         this.toggleView = this.toggleView.bind(this);
-//         this.editMode = this.editMode.bind(this);
-
-//     }
-//     handleRemove(e){
-//         this.props.removeItem(this.props.item.id);
-//     }
-
-//     toggleView(){
-//         this.setState(prevState => (
-//             {editView: !prevState.editView }
-//             ))
-//     }
-
-//     editMode(){
-//         this.toggleView();
-        
-//     }
-
-//     handleComplete(){
-    
-//         this.props.completeItem(this.props.item)
-//     }
-    
-//     render() {
-
-        // const itemView = !this.state.editView ?<div className="item">{this.props.item.detail}</div> : <EditItem item={this.props.item} editMode={this.editMode} editItem={this.props.editItem}/>;
-        // const editBtn = !this.state.editView ? <button onClick={this.toggleView} className="button button-edit"><FontAwesomeIcon icon={farEdit} size="lg" /></button>: <button onClick={this.toggleView} className="button button-edit">X</button>
-        // return (
-        //     <div className="item-container">
-        //        <div className="complete-button-container"> 
-        //        <button onClick={this.handleComplete} className="button button-complete"><FontAwesomeIcon icon={fasCheck} size="lg" />
-        //        </button>
-        //         </div>
-        //         {itemView}
-        //         <div className="buttons">
-        //         {editBtn}
-        //         <button onClick={this.handleRemove} className="button button-delete"><FontAwesomeIcon icon={farTrashAlt} size="lg"/></button>  
-        //         </div>
-        //     </div>
-//         )
-//     }
-// }
-

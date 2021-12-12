@@ -1,27 +1,46 @@
 .CompletedItem {
   list-style: none;
-
+  cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  color: #323a41;
+  padding: 1rem 3rem;
   background-color: #ffffff;
   border-bottom: solid 2px #eeeeee;
   display: flex;
   align-items: center;
-  padding-left: 2rem;
 }
 
-.CompletedItem > button {
+.CompletedItem:hover .CompletedItem__Button {
+  text-decoration: none;
+}
+
+.CompletedItem:hover .CompletedItem__Icon {
+  color: transparent;
+}
+
+.CompletedItem:last-child {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.CompletedItem__Button {
+  color: #0c1b33;
+  display: block;
   cursor: pointer;
   text-align: left;
   font-size: 1.6rem;
   width: 100%;
-  padding: 1.5rem 4rem;
+  margin-left: 3rem;
+  margin-bottom: 0.5rem;
   background-color: transparent;
   text-decoration: line-through;
   border: none;
-  color: grey;
 }
 
-.CompletedItem > button:hover {
-  text-decoration: none;
+.CompletedItem__Date {
+  display: block;
+  width: 20rem;
+  margin-left: 3rem;
+  font-size: 1.2rem;
+  color: grey;
 }

@@ -3,14 +3,24 @@ import './EditItem.css'
 
 export default function EditItem(props) {
     const [itemDetail, setDetail] = useState(props.item.detail);
+    const [warningActive, setWarningActive] = useState(false);
+
 
     const handleSubmit = e => {
         e.preventDefault();
-        let editedItem = {
-            id: props.item.id, detail: itemDetail
+        let cleanString = itemDetail.trim();
+
+        if(cleanString.length === 0){
+            props.editMode();
+        } else {
+            let editedItem = {
+                id: props.item.id, detail: cleanString
+            }
+            props.editItem(editedItem);
+            props.editMode();
         }
-        props.editItem(editedItem);
-        props.editMode();
+
+
     }
 
     const handleChange = e => {
@@ -18,57 +28,21 @@ export default function EditItem(props) {
 
     }
 
-
     return (
-        <form className="edit-form" onSubmit={handleSubmit}>
+        <form className="EditItem" onSubmit={handleSubmit}>
             <input
                 autoFocus
                 onChange={handleChange}
                 onBlur={(e) => {
         
-                    if(!e.relatedTarget || !e.relatedTarget.classList.contains('button-edit')){
+                    if(!e.relatedTarget || !e.relatedTarget.classList.contains('Item__Button--Edit')){
                         props.editMode()
                     }
                     
                 }}
-                className="edit-item-input" 
+                className="EditItem__Input" 
                 value={itemDetail}>
             </input> 
         </form>
     )
 }
-
-
-// export class EditItem extends Component {
-//     constructor(props){
-//         super(props)
-//         this.state = {
-//             item: this.props.item.detail
-//          }
-//         this.handleSubmit = this.handleSubmit.bind(this);
-//         this.handleChange = this.handleChange.bind(this)
-//     }
-
-//     handleSubmit(e){
-//         e.preventDefault();
-//         let editedItem = {
-//             id: this.props.item.id, detail: this.state.item
-//         }
-//         console.log('edited item', editedItem);
-//         this.props.editItem(editedItem);
-//         this.props.editMode();
-//     }
-
-//     handleChange(e){
-//         this.setState({
-//             item: e.target.value
-//         })
-//     }
-    
-//     render() {
-//         return (
-           
-//         )
-//     }
-// }
-

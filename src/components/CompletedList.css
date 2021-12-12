@@ -6,13 +6,14 @@
 
 .CompletedList__Header {
   background-color: steelblue;
-  font-size: 2.6rem;
+  font-size: 2.4rem;
+  font-weight: bold;
   color: #fff;
-  font-weight: 500;
-  padding: 1rem;
+  padding: 1.4rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   text-align: center;
   width: 100%;
+  border-radius: 8px 8px 0 0;
 }
 
 .CompletedList__Body {

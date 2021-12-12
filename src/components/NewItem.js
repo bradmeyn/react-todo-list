@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import  {faPlus as falPlus} from '@fortawesome/pro-light-svg-icons';
 import './NewItem.css'
 
 export default function NewItem(props) {
@@ -44,7 +46,7 @@ export default function NewItem(props) {
         <form onSubmit={handleSubmit}>
             <div className={warningActive ? "NewItem NewItem--Warning" : "NewItem"}>
                 <input name="newItem" className="NewItem__Input" placeholder="Add new item.." value={newItem} onChange={handleChange}></input>
-                <button className="NewItem__Button" >+</button>
+                <button className="NewItem__Button" ><FontAwesomeIcon icon={falPlus} size="sm" /></button>
             </div>
         </form>
     )

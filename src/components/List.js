@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-
 import Item from './Item'
 import NewItem from'./NewItem'
 import CompletedList from './CompletedList'
@@ -13,9 +12,9 @@ export default function List(props) {
         {id: uuidv4(), detail: 'Walk the dog'}
     ]);
     const [completedItems, setCompleted] = useState([
-        {id: uuidv4(), detail: 'Read a chapter'},
-        {id: uuidv4(), detail: 'Hang clothes on the line'},
-        {id: uuidv4(), detail: 'Clean the kitchen'}
+        {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Read a chapter'},
+        {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Hang clothes on the line'},
+        {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Clean the kitchen'}
     ]);
 
   const [completedView, setCompletedView] = useState(false);
@@ -29,9 +28,13 @@ export default function List(props) {
        //remove item from main list
         let updatedList = items.filter(item => {
             return item.id !== completedItem.id
-        })
+        });
+
         setItems([...updatedList]);
+
+        completedItem.completedDate = new Date(Date.now()).toDateString();
         setCompleted([...completedItems, completedItem]);
+
     }
 
     const editItem = editedItem => {
@@ -76,7 +79,7 @@ export default function List(props) {
 
     return (
         <div className="List">
-            <div className="List__Buttons">
+            <div className="List__Toggle">
                 <button 
                 className={completedView ? 'List__Button' : 'List__Button--Active'} 
                 onClick={completedView ? toggleCompleteView : ""}
