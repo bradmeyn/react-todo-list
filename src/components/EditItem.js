@@ -3,8 +3,6 @@ import './EditItem.css'
 
 export default function EditItem(props) {
     const [itemDetail, setDetail] = useState(props.item.detail);
-    const [warningActive, setWarningActive] = useState(false);
-
 
     const handleSubmit = e => {
         e.preventDefault();
