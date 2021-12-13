@@ -7,13 +7,13 @@
   list-style: none;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   background-color: #ffffff;
   border-bottom: solid 2px #eeeeee;
   display: flex;
   align-items: center;
   width: 100%;
-  height: 5rem;
+  height: 6rem;
 }
 
 .CompletedItem:hover .CompletedItem__Item {
@@ -59,16 +59,16 @@
 }
 
 .CompletedItem__Delete-Button {
-  display: block;
+  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.4rem;
   border: none;
-  color: lightcoral;
+  color: rgb(253, 61, 61);
   cursor: pointer;
+  padding: 1.4rem 3rem;
+  height: 6rem;
   width: 5rem;
-  height: 5rem;
-  padding: 1rem;
   border-bottom: solid 2px #eeeeee;
   background-color: #ffffff;
 }

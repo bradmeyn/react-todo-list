@@ -57,6 +57,9 @@
 
 .Item__Button--Edit {
   background-color: lightblue;
+}
+
+.Item__Container:last-child .Item__Button--Edit {
   border-radius: 0 0 8px 0;
 }
 
