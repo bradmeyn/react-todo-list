@@ -26,20 +26,19 @@ export default function Item(props) {
     const handleComplete = () => {
         props.completeItem(props.item)
         }
-
+        
 
         const itemView = !editView ?<div className="Item"><FontAwesomeIcon className="Item__Icon" icon={faCircle} size="sm" />{props.item.detail}</div> : <EditItem item={props.item} editMode={editMode} editItem={props.editItem}/>;
-        const editBtn = !editView ? <button onClick={toggleView} className="Item__Button Item__Button--Edit"><FontAwesomeIcon icon={falEdit} size="lg"/></button>: <button style={{backgroundColor: "lightPink"}} onClick={toggleView} className="Item__Button Item__Button--Edit"><FontAwesomeIcon icon={falTimes} size="lg"/></button>
+        const editBtn = !editView ? <button onClick={toggleView} className="Item__Button Item__Button--Edit"><FontAwesomeIcon icon={falEdit} size="lg"/></button> : <button style={{backgroundColor: "lightPink"}} onClick={toggleView} className="Item__Button Item__Button--Edit Item__Button--Edit-Active"><FontAwesomeIcon icon={falTimes} size="lg"/></button>
     return (
-        <div className="Item__Container">
-            <div className="Item__Button-Container">
-                <button onClick={handleComplete} className="Item__Button Item__Button--Complete"><FontAwesomeIcon icon={falCheck} size="lg" /></button>
-            </div>
+        <li className="Item__Container" >
             {itemView}
             <div className="Item__Buttons-Container">
+            <button onClick={handleComplete} className={editView ? "Hidden" : "Item__Button Item__Button--Complete"}><FontAwesomeIcon icon={falCheck} size="lg" /></button>
+                
+                <button onClick={handleRemove} className={editView ? "Hidden" : "Item__Button Item__Button--Delete"}><FontAwesomeIcon icon={falTrashAlt} size="lg"/></button> 
                 {editBtn}
-                <button onClick={handleRemove} className="Item__Button Item__Button--Delete"><FontAwesomeIcon icon={falTrashAlt} size="lg"/></button>  
             </div>
-        </div>
+        </li>
     )
 }

@@ -19,5 +19,23 @@
 .CompletedList__Body {
   transition: height 0.3s ease-in-out;
 
-  height: 0;
+  /* height: 0; */
+}
+
+.CompletedList__Show-Button {
+  display: block;
+  margin: 2rem auto;
+  padding: 1.2rem;
+  background-color: transparent;
+  border: none;
+  color: #323c4d;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  width: 15rem;
+}
+
+.CompletedList__Show-Button:hover {
+  color: #4d5c75;
 }

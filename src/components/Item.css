@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+  border-bottom-left-radius: 8px;
 }
 
 .Item__Container:last-child {
@@ -25,27 +26,21 @@
   height: 5rem;
 }
 
+.Item__Container:last-child .Item {
+  border-radius: 0 0 8px 8px;
+}
+
 .Item__Icon {
   font-size: 0.6rem;
   margin-right: 3rem;
   color: steelblue;
 }
 
-.Item:last-child {
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-
 .Item__Buttons-Container {
   display: flex;
   height: 100%;
   position: absolute;
-  left: 50rem;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
+  right: 0;
 }
 
 .Item__Button {
@@ -62,45 +57,52 @@
 
 .Item__Button--Edit {
   background-color: lightblue;
+  border-radius: 0 0 8px 0;
+}
+
+.Item__Button--Edit-Active {
+  background-color: lightpink;
 }
 
 .Item__Button--Delete {
   background-color: rgb(238, 174, 144);
 }
 
-.Item__Button-Container {
-  height: 100%;
-  position: absolute;
-  right: 50rem;
-  box-shadow: rgba(0, 0, 0, 0.15) -1.95px 1.95px 2.6px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  overflow: hidden;
-}
-
 .Item__Button--Complete {
   background-color: lightgreen;
 }
 
+.Hidden {
+  display: none;
+}
+
 .Item__Container:hover .Item__Button,
-.Item__Container:active .Item__Button,
-.Item__Container:focus .Item__Button,
 .Item__Buttons-Container:hover .Item__Button,
-.Item__Buttons-Container:active .Item__Button,
-.Item__Buttons-Container:focus .Item__Button,
 .Item:hover ~ .Item__Button-Container .Item__Button,
-.Item:active ~ .Item__Button-Container .Item__Button,
-.Item:focus ~ .Item__Button-Container .Item__Button,
-.Item__Button-Container:hover .Item__Button,
-.Item__Button-Container:active .Item__Button,
-.Item__Button-Container:focus .Item__Button {
+.Item__Button-Container:hover .Item__Button {
   opacity: 1;
   width: 5rem;
 }
 
-.Item__Container:hover,
-.Item__Container:active,
-.Item__Container:focus {
+.Item__Container:hover {
   overflow: visible;
   box-shadow: none;
+}
+
+@media (hover: none) {
+  .Item__Button {
+    font-size: 1rem;
+  }
+
+  .Item__Container:hover .Item__Button,
+  .Item__Buttons-Container:hover .Item__Button,
+  .Item:hover ~ .Item__Button-Container .Item__Button,
+  .Item__Button-Container:hover .Item__Button {
+    opacity: 1;
+    width: 3rem;
+  }
+
+  .Item__Button--Edit-Active {
+    background-color: lightpink;
+  }
 }

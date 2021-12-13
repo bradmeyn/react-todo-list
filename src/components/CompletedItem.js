@@ -3,7 +3,7 @@ import React from 'react'
 import './CompletedItem.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import  {faCheck as falCheck} from '@fortawesome/pro-light-svg-icons';
+import  {faCheck as falCheck, faTrashAlt as falTrashAlt} from '@fortawesome/pro-light-svg-icons';
 
 export default function CompletedItem(props) {
 
@@ -11,42 +11,21 @@ export default function CompletedItem(props) {
         props.reinstateItem(props.item)
       }
 
+      const handleRemove = e => {
+        props.removeCompletedItem(props.item.id);
+        }
+
     return (
-        <li className="CompletedItem" onClick={handleReinstatement}>
-           <FontAwesomeIcon className={'CompletedItem__Icon'} icon={falCheck} size={'3x'} color={'green'}/>
-           <div>
-           <button className="CompletedItem__Button">
-               {props.item.detail}
-               
-           </button>
-           <small className="CompletedItem__Date">{props.item.completedDate}</small>
-           
+        <li className="CompletedItem__Container">
+           <div className="CompletedItem"onClick={handleReinstatement}>
+                <FontAwesomeIcon className={'CompletedItem__Icon'} icon={falCheck} size={'3x'} color={'green'}/>
+                <div className="CompletedItem__Details">
+                    <button className="CompletedItem__Item">{props.item.detail}</button>
+                    <small className="CompletedItem__Date">{props.item.completedDate}</small>
+                </div>
            </div>
-            
+
+            <button className="CompletedItem__Delete-Button" onClick={handleRemove}><FontAwesomeIcon icon={falTrashAlt} size="lg"/></button>
         </li>
     )
 }
-
-
-
-
-
-
-// export class CompletedItem extends Component {
-//   constructor(props){
-//       super(props)
-//       this.handleReinstatement = this.handleReinstatement.bind(this)
-//   }
-
-//   handleReinstatement(){
-//     this.props.reinstateItem(this.props.item)
-//   }
-
-//     render() {
-//         return (
-//             <li className="completed-item">
-//                 <button onClick={this.handleReinstatement}>{this.props.item.detail}</button>
-//             </li>
-//         )
-//     }
-// }

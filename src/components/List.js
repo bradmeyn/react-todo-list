@@ -54,6 +54,11 @@ export default function List(props) {
         setItems(updatedList);
     }
 
+    const removeCompletedItem = removedItemId => {
+        let updatedList = completedItems.filter(item => item.id !== removedItemId);
+        setCompleted(updatedList);
+    }
+
      const reinstateItem = reinstatedItem => {
         let updatedComplete = completedItems.filter(item => item.id !== reinstatedItem.id);
         setCompleted(updatedComplete);
@@ -70,9 +75,11 @@ export default function List(props) {
             <header className="List__Header">
                 {props.listName}
             </header>
-        {items.map(item => {
-            return <Item key={item.id} item={item} removeItem={removeItem} editItem={editItem} completeItem={completeItem}/>
-        })}
+        <ul className="List__Body"> 
+            {items.map(item => {
+                return <Item key={item.id} item={item} removeItem={removeItem} editItem={editItem} completeItem={completeItem}/>
+            })}
+        </ul>
         </div>
         <NewItem addItem={addItem} items={items}/>
         </>)
@@ -96,7 +103,7 @@ export default function List(props) {
                 </button>
             </div>
 
-            {completedView ? <CompletedList completedItems={completedItems} reinstateItem={reinstateItem}/> : mainList}
+            {completedView ? <CompletedList completedItems={completedItems} removeCompletedItem={removeCompletedItem} reinstateItem={reinstateItem}/> : mainList}
             
 
             
