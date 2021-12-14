@@ -53,6 +53,7 @@
   width: 0;
   height: 100%;
   cursor: pointer;
+  color: black;
 }
 
 .Item__Button--Edit {
@@ -97,15 +98,25 @@
     font-size: 1rem;
   }
 
+  .Item__Icon {
+    font-size: 0.6rem;
+    margin-right: 2rem;
+    color: steelblue;
+  }
+
   .Item__Container:hover .Item__Button,
   .Item__Buttons-Container:hover .Item__Button,
   .Item:hover ~ .Item__Button-Container .Item__Button,
   .Item__Button-Container:hover .Item__Button {
     opacity: 1;
-    width: 3rem;
+    width: 3.5rem;
   }
 
   .Item__Button--Edit-Active {
     background-color: lightpink;
+  }
+
+  .Item {
+    padding: 1.4rem 2rem;
   }
 }

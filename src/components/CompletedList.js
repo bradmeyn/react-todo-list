@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import CompletedItem from './CompletedItem'
 import './CompletedList.css'
