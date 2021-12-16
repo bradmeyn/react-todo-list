@@ -1,4 +1,4 @@
-.navbar {
+.Navbar {
   display: flex;
   position: relative;
   align-items: center;
@@ -6,11 +6,17 @@
   width: 100%;
 }
 
-.title {
+.Navbar__Title {
   font-size: 3rem;
   padding: 0 0.5rem;
 }
 
-svg {
+.Navbar__Logo {
   height: 4rem;
+}
+
+@media (hover: none) {
+  .Navbar {
+    justify-content: center;
+  }
 }

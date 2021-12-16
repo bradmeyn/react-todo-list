@@ -1,0 +1,51 @@
+.Footer {
+  /* height: 6rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+
+.Footer__Text {
+  margin-bottom: 0.8rem;
+}
+
+.Footer__Link {
+  color: rgb(53, 99, 138);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.Footer__Link:hover {
+  color: steelblue;
+}
+
+.Footer__Link:visited {
+  color: rgb(53, 99, 138);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.Footer__Github {
+  font-size: 1.4rem;
+  display: block;
+  color: gray;
+}
+
+.Footer__Github--Icon {
+  margin-right: 0.5rem;
+}
+
+.Footer__Github-Link {
+  text-decoration: none;
+}
+
+.Footer__Github-Link:visited {
+  color: gray;
+}
+
+.Footer__Github-Link:hover {
+  color: darkgray;
+}

@@ -7,13 +7,15 @@ import  {faCheck as falCheck, faTrashAlt as falTrashAlt} from '@fortawesome/pro-
 
 export default function CompletedItem(props) {
 
+    //function to return a completed item to the outstanding item list
     const handleReinstatement = () => {
         props.reinstateItem(props.item)
       }
-
-      const handleRemove = e => {
-        props.removeCompletedItem(props.item.id);
-        }
+    
+      //function to permanently delete a completed item
+    const handleRemove = () => {
+    props.removeCompletedItem(props.item.id);
+    }
 
     return (
         <li className="CompletedItem__Container">

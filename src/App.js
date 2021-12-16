@@ -1,6 +1,7 @@
 
 import './App.css';
 import  {Navbar}  from  './components/Navbar';
+import  Footer  from  './components/Footer';
 import  List  from  './components/List';
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
       <main>
         <List listName="Outstanding Items"/>
       </main>
+      <Footer/>
     </div>
   );
 }

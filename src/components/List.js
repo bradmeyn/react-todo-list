@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Item from './Item'
 import NewItem from'./NewItem'
 import CompletedList from './CompletedList'
@@ -6,37 +6,52 @@ import './List.css'
 import { v4 as uuidv4 } from 'uuid';
 
 export default function List(props) {
-    const [items, setItems] = useState([
+    //default items if there are none in local storage
+    let savedItems = !window.localStorage.getItem("items") ? 
+    [
         {id: uuidv4(), detail: 'Go to the gym'},
         {id: uuidv4(), detail: 'Purchase groceries'},
         {id: uuidv4(), detail: 'Walk the dog'}
-    ]);
-    const [completedItems, setCompleted] = useState([
+    ] : JSON.parse(window.localStorage.getItem("items"));
+
+    let savedCompleted = !window.localStorage.getItem("completedItems") ?
+    [
         {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Read a chapter'},
         {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Hang clothes on the line'},
         {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Clean the kitchen'}
-    ]);
+    ]: JSON.parse(window.localStorage.getItem("completedItems"));
 
-  const [completedView, setCompletedView] = useState(false);
+    const [items, setItems] = useState(savedItems);
+    const [completedItems, setCompleted] = useState(savedCompleted);
+    const [completedView, setCompletedView] = useState(false);
 
+    //update items/completed values in local storage when the values change.
+    useEffect(() => {
+        window.localStorage.setItem("items", JSON.stringify(items));
+    }, [items]);
+
+    useEffect(() => {
+        window.localStorage.setItem("completedItems", JSON.stringify(completedItems));
+    }, [completedItems]);
+
+    //function to create a new item and add to list
     const addItem = newItem => {
         let item = {id: uuidv4(), detail: newItem};
         setItems([...items, item]);
-     }
+    }
 
-     const completeItem = completedItem => {
-       //remove item from main list
+    //function for completing an outstanding item and moving it to the completed list
+    const completeItem = completedItem => {
         let updatedList = items.filter(item => {
             return item.id !== completedItem.id
         });
-
         setItems([...updatedList]);
-
         completedItem.completedDate = new Date(Date.now()).toDateString();
         setCompleted([...completedItems, completedItem]);
-
     }
 
+
+    //function to edit existing item
     const editItem = editedItem => {
         const newList = items.map(item => {
            if(item.id === editedItem.id){
@@ -44,28 +59,32 @@ export default function List(props) {
            }
            return item;
         }
-        );
-        
+        );  
         setItems(newList);
     }
 
+    //function to permanently remove an outstanding item
     const removeItem = removedItemId => {
         let updatedList = items.filter(item => item.id !== removedItemId);
         setItems(updatedList);
     }
 
+    //function to permanently remove a completed item
     const removeCompletedItem = removedItemId => {
         let updatedList = completedItems.filter(item => item.id !== removedItemId);
         setCompleted(updatedList);
     }
 
-     const reinstateItem = reinstatedItem => {
+    //function to move item back from completed item list to outstanding item list
+    const reinstateItem = reinstatedItem => {
         let updatedComplete = completedItems.filter(item => item.id !== reinstatedItem.id);
         setCompleted(updatedComplete);
         setItems([...items,reinstatedItem]);
+
     }
 
-     const toggleCompleteView = () => {
+    //switch to/from completed list
+    const toggleCompleteView = () => {
         setCompletedView(!completedView);
      }
 
