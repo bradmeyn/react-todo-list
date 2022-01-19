@@ -20,7 +20,7 @@ export default function CompletedItem(props) {
     return (
         <li className="CompletedItem__Container">
            <div className="CompletedItem"onClick={handleReinstatement}>
-                <FontAwesomeIcon className={'CompletedItem__Icon'} icon={falCheck} size={'3x'} color={'green'}/>
+                <FontAwesomeIcon className={'CompletedItem__Icon'} icon={falCheck} color={'green'}/>
                 <div className="CompletedItem__Details">
                     <button className="CompletedItem__Item">{props.item.detail}</button>
                     <small className="CompletedItem__Date">{props.item.completedDate}</small>

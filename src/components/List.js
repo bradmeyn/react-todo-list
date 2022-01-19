@@ -89,19 +89,21 @@ export default function List(props) {
      }
 
 
-     const mainList = (<>
+     const mainList = (
+        <>
         <div className="List__Container">
             <header className="List__Header">
                 {props.listName}
             </header>
-        <ul className="List__Body"> 
-            {items.map(item => {
-                return <Item key={item.id} item={item} removeItem={removeItem} editItem={editItem} completeItem={completeItem}/>
-            })}
-        </ul>
+            <ul className="List__Body"> 
+                {items.map(item => {
+                    return <Item key={item.id} item={item} removeItem={removeItem} editItem={editItem} completeItem={completeItem}/>
+                })}
+            </ul>
         </div>
         <NewItem addItem={addItem} items={items}/>
-        </>)
+        </>
+    )
 
     return (
         <div className="List">
@@ -111,21 +113,19 @@ export default function List(props) {
                 onClick={completedView ? toggleCompleteView : ""}
                 >
                 Outstanding
-    <span className={items.length > 0 ? 'List__ItemCount' : 'List__ItemCount--Hidden'} >{items.length}</span>
+                <span className={items.length > 0 ? 'List__ItemCount' : 'List__ItemCount--Hidden'} >{items.length}</span>
                 </button>
                 <button 
                 className={completedView ? 'List__Button--Active' : 'List__Button'}
                 onClick={!completedView ? toggleCompleteView : ""}
                 >
                 Completed
-    <span className={completedItems.length > 0 ? 'List__ItemCount' : 'List__ItemCount--Hidden'}>{completedItems.length}</span>
+                <span className={completedItems.length > 0 ? 'List__ItemCount' : 'List__ItemCount--Hidden'}>{completedItems.length}</span>
                 </button>
             </div>
 
             {completedView ? <CompletedList completedItems={completedItems} removeCompletedItem={removeCompletedItem} reinstateItem={reinstateItem}/> : mainList}
-            
 
-            
         </div>
     )
 }

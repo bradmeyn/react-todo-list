@@ -1,13 +1,15 @@
 .CompletedItem__Container {
   display: flex;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .CompletedItem {
   display: flex;
   list-style: none;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  padding: 1rem 2rem;
+
+  padding: 1rem 0 1rem 2rem;
   background-color: #ffffff;
   border-bottom: solid 2px #eeeeee;
   display: flex;
@@ -31,6 +33,10 @@
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
+.CompletedItem__Icon {
+  font-size: 2.2rem;
+}
+
 .CompletedItem__Details {
   width: 100%;
 }
@@ -42,7 +48,7 @@
   text-align: left;
   font-size: 1.6rem;
   width: 100%;
-  margin-left: 3rem;
+  margin-left: 2rem;
   margin-bottom: 0.5rem;
   background-color: transparent;
   text-decoration: line-through;
@@ -53,7 +59,7 @@
 .CompletedItem__Date {
   display: block;
   width: 20rem;
-  margin-left: 3rem;
+  margin-left: 2rem;
   font-size: 1.2rem;
   color: grey;
 }

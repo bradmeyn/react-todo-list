@@ -1,5 +1,4 @@
 .Footer {
-  /* height: 6rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,32 +13,36 @@
 
 .Footer__Link {
   color: rgb(53, 99, 138);
-  font-weight: bold;
+
   text-decoration: none;
 }
 
 .Footer__Link:hover {
   color: steelblue;
+  text-decoration: underline;
 }
 
 .Footer__Link:visited {
   color: rgb(53, 99, 138);
-  font-weight: bold;
+
   text-decoration: none;
 }
 
 .Footer__Github {
   font-size: 1.4rem;
   display: block;
-  color: gray;
+
+  color: steelblue;
 }
 
 .Footer__Github--Icon {
   margin-right: 0.5rem;
+  color: gray;
 }
 
 .Footer__Github-Link {
   text-decoration: none;
+  color: steelblue;
 }
 
 .Footer__Github-Link:visited {
