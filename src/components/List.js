@@ -9,16 +9,19 @@ export default function List(props) {
     //default items if there are none in local storage
     let savedItems = !window.localStorage.getItem("items") ? 
     [
-        {id: uuidv4(), detail: 'Go to the gym'},
-        {id: uuidv4(), detail: 'Purchase groceries'},
-        {id: uuidv4(), detail: 'Walk the dog'}
+        {id: uuidv4(), detail: 'Finish ClientBook'},
+        {id: uuidv4(), detail: 'Start budget app'},
+        {id: uuidv4(), detail: 'Build something with Next.js'},
+        {id: uuidv4(), detail: 'Start learning iOS'},
+        {id: uuidv4(), detail: 'Create restaurant site'},
+        {id: uuidv4(), detail: 'Create business site w/blog'}
     ] : JSON.parse(window.localStorage.getItem("items"));
 
     let savedCompleted = !window.localStorage.getItem("completedItems") ?
     [
-        {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Read a chapter'},
-        {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Hang clothes on the line'},
-        {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Clean the kitchen'}
+        {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Start learning React'},
+        {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Start Computer Science Degree'},
+        {id: uuidv4(), completedDate: new Date(Date.now()).toDateString(), detail: 'Walk the dog'}
     ]: JSON.parse(window.localStorage.getItem("completedItems"));
 
     const [items, setItems] = useState(savedItems);

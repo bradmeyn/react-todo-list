@@ -4,11 +4,11 @@
   justify-content: center;
   align-items: center;
   font-size: 1.4rem;
-  padding: 1rem;
 }
 
 .Footer__Text {
-  margin-bottom: 0.8rem;
+  height: 100%;
+  padding: 2rem;
 }
 
 .Footer__Link {
